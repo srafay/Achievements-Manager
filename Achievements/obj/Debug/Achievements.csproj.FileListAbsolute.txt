@@ -1,0 +1,9 @@
+C:\Users\scsc\Desktop\Achievements\Achievements\bin\Debug\Achievements.exe.config
+C:\Users\scsc\Desktop\Achievements\Achievements\bin\Debug\Achievements.exe
+C:\Users\scsc\Desktop\Achievements\Achievements\bin\Debug\Achievements.pdb
+C:\Users\scsc\Desktop\Achievements\Achievements\obj\Debug\Achievements.csprojResolveAssemblyReference.cache
+C:\Users\scsc\Desktop\Achievements\Achievements\obj\Debug\Achievements.Form1.resources
+C:\Users\scsc\Desktop\Achievements\Achievements\obj\Debug\Achievements.Properties.Resources.resources
+C:\Users\scsc\Desktop\Achievements\Achievements\obj\Debug\Achievements.csproj.GenerateResource.Cache
+C:\Users\scsc\Desktop\Achievements\Achievements\obj\Debug\Achievements.exe
+C:\Users\scsc\Desktop\Achievements\Achievements\obj\Debug\Achievements.pdb

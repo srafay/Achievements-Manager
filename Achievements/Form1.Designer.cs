@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            this.components = new System.ComponentModel.Container();
             System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
@@ -36,6 +37,9 @@
             this.label3 = new System.Windows.Forms.Label();
             this.suspectsNames = new System.Windows.Forms.RichTextBox();
             this.button1 = new System.Windows.Forms.Button();
+            this.codeLink = new System.Windows.Forms.LinkLabel();
+            this.profileLink = new System.Windows.Forms.LinkLabel();
+            this.toolTip1 = new System.Windows.Forms.ToolTip(this.components);
             this.label4 = new System.Windows.Forms.Label();
             this.infoChainsaw = new System.Windows.Forms.Label();
             this.infoSniper = new System.Windows.Forms.Label();
@@ -48,8 +52,8 @@
             this.MWCount = new System.Windows.Forms.Label();
             this.heliCount = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
-            this.codeLink = new System.Windows.Forms.LinkLabel();
-            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
+            this.achievementsPanel = new System.Windows.Forms.Panel();
+            this.achievementsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
@@ -119,11 +123,34 @@
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
+            // codeLink
+            // 
+            this.codeLink.AutoSize = true;
+            this.codeLink.Location = new System.Drawing.Point(578, 514);
+            this.codeLink.Name = "codeLink";
+            this.codeLink.Size = new System.Drawing.Size(132, 13);
+            this.codeLink.TabIndex = 20;
+            this.codeLink.TabStop = true;
+            this.codeLink.Text = "Click to view Source Code";
+            this.codeLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.codeLink_LinkClicked);
+            // 
+            // profileLink
+            // 
+            this.profileLink.AutoSize = true;
+            this.profileLink.LinkColor = System.Drawing.Color.Black;
+            this.profileLink.Location = new System.Drawing.Point(572, 537);
+            this.profileLink.Name = "profileLink";
+            this.profileLink.Size = new System.Drawing.Size(146, 13);
+            this.profileLink.TabIndex = 21;
+            this.profileLink.TabStop = true;
+            this.profileLink.Text = "Developed By: [Lsrcr]Wajeeh";
+            this.profileLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // label4
             // 
             this.label4.AutoSize = true;
             this.label4.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.label4.Location = new System.Drawing.Point(486, 57);
+            this.label4.Location = new System.Drawing.Point(31, 15);
             this.label4.Name = "label4";
             this.label4.Size = new System.Drawing.Size(169, 16);
             this.label4.TabIndex = 7;
@@ -133,7 +160,7 @@
             // 
             this.infoChainsaw.AutoSize = true;
             this.infoChainsaw.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.infoChainsaw.Location = new System.Drawing.Point(495, 86);
+            this.infoChainsaw.Location = new System.Drawing.Point(40, 44);
             this.infoChainsaw.Name = "infoChainsaw";
             this.infoChainsaw.Size = new System.Drawing.Size(98, 16);
             this.infoChainsaw.TabIndex = 8;
@@ -143,7 +170,7 @@
             // 
             this.infoSniper.AutoSize = true;
             this.infoSniper.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.infoSniper.Location = new System.Drawing.Point(495, 119);
+            this.infoSniper.Location = new System.Drawing.Point(40, 77);
             this.infoSniper.Name = "infoSniper";
             this.infoSniper.Size = new System.Drawing.Size(79, 16);
             this.infoSniper.TabIndex = 9;
@@ -153,7 +180,7 @@
             // 
             this.infoBomb.AutoSize = true;
             this.infoBomb.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.infoBomb.Location = new System.Drawing.Point(495, 151);
+            this.infoBomb.Location = new System.Drawing.Point(40, 109);
             this.infoBomb.Name = "infoBomb";
             this.infoBomb.Size = new System.Drawing.Size(76, 16);
             this.infoBomb.TabIndex = 10;
@@ -163,7 +190,7 @@
             // 
             this.infoMWDrags.AutoSize = true;
             this.infoMWDrags.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.infoMWDrags.Location = new System.Drawing.Point(495, 181);
+            this.infoMWDrags.Location = new System.Drawing.Point(40, 139);
             this.infoMWDrags.Name = "infoMWDrags";
             this.infoMWDrags.Size = new System.Drawing.Size(133, 16);
             this.infoMWDrags.TabIndex = 11;
@@ -173,7 +200,7 @@
             // 
             this.infoHeli.AutoSize = true;
             this.infoHeli.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.infoHeli.Location = new System.Drawing.Point(495, 211);
+            this.infoHeli.Location = new System.Drawing.Point(40, 169);
             this.infoHeli.Name = "infoHeli";
             this.infoHeli.Size = new System.Drawing.Size(78, 16);
             this.infoHeli.TabIndex = 12;
@@ -183,7 +210,7 @@
             // 
             this.chainsawCount.AutoSize = true;
             this.chainsawCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.chainsawCount.Location = new System.Drawing.Point(591, 86);
+            this.chainsawCount.Location = new System.Drawing.Point(136, 44);
             this.chainsawCount.Name = "chainsawCount";
             this.chainsawCount.Size = new System.Drawing.Size(16, 16);
             this.chainsawCount.TabIndex = 13;
@@ -193,7 +220,7 @@
             // 
             this.sniperCount.AutoSize = true;
             this.sniperCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.sniperCount.Location = new System.Drawing.Point(572, 119);
+            this.sniperCount.Location = new System.Drawing.Point(117, 77);
             this.sniperCount.Name = "sniperCount";
             this.sniperCount.Size = new System.Drawing.Size(16, 16);
             this.sniperCount.TabIndex = 14;
@@ -203,7 +230,7 @@
             // 
             this.bombCount.AutoSize = true;
             this.bombCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.bombCount.Location = new System.Drawing.Point(568, 151);
+            this.bombCount.Location = new System.Drawing.Point(113, 109);
             this.bombCount.Name = "bombCount";
             this.bombCount.Size = new System.Drawing.Size(16, 16);
             this.bombCount.TabIndex = 15;
@@ -213,7 +240,7 @@
             // 
             this.MWCount.AutoSize = true;
             this.MWCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.MWCount.Location = new System.Drawing.Point(626, 182);
+            this.MWCount.Location = new System.Drawing.Point(171, 140);
             this.MWCount.Name = "MWCount";
             this.MWCount.Size = new System.Drawing.Size(16, 16);
             this.MWCount.TabIndex = 16;
@@ -223,7 +250,7 @@
             // 
             this.heliCount.AutoSize = true;
             this.heliCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.heliCount.Location = new System.Drawing.Point(571, 212);
+            this.heliCount.Location = new System.Drawing.Point(116, 170);
             this.heliCount.Name = "heliCount";
             this.heliCount.Size = new System.Drawing.Size(16, 16);
             this.heliCount.TabIndex = 17;
@@ -239,48 +266,33 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
-            // codeLink
+            // achievementsPanel
             // 
-            this.codeLink.AutoSize = true;
-            this.codeLink.Location = new System.Drawing.Point(578, 514);
-            this.codeLink.Name = "codeLink";
-            this.codeLink.Size = new System.Drawing.Size(132, 13);
-            this.codeLink.TabIndex = 20;
-            this.codeLink.TabStop = true;
-            this.codeLink.Text = "Click to view Source Code";
-            this.codeLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.codeLink_LinkClicked);
-            // 
-            // linkLabel1
-            // 
-            this.linkLabel1.AutoSize = true;
-            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
-            this.linkLabel1.Location = new System.Drawing.Point(572, 537);
-            this.linkLabel1.Name = "linkLabel1";
-            this.linkLabel1.Size = new System.Drawing.Size(146, 13);
-            this.linkLabel1.TabIndex = 21;
-            this.linkLabel1.TabStop = true;
-            this.linkLabel1.Text = "Developed By: [Lsrcr]Wajeeh";
-            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            this.achievementsPanel.Controls.Add(this.heliCount);
+            this.achievementsPanel.Controls.Add(this.MWCount);
+            this.achievementsPanel.Controls.Add(this.bombCount);
+            this.achievementsPanel.Controls.Add(this.sniperCount);
+            this.achievementsPanel.Controls.Add(this.chainsawCount);
+            this.achievementsPanel.Controls.Add(this.infoHeli);
+            this.achievementsPanel.Controls.Add(this.infoMWDrags);
+            this.achievementsPanel.Controls.Add(this.infoBomb);
+            this.achievementsPanel.Controls.Add(this.infoSniper);
+            this.achievementsPanel.Controls.Add(this.infoChainsaw);
+            this.achievementsPanel.Controls.Add(this.label4);
+            this.achievementsPanel.Location = new System.Drawing.Point(455, 42);
+            this.achievementsPanel.Name = "achievementsPanel";
+            this.achievementsPanel.Size = new System.Drawing.Size(225, 196);
+            this.achievementsPanel.TabIndex = 22;
             // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(730, 559);
-            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.achievementsPanel);
+            this.Controls.Add(this.profileLink);
             this.Controls.Add(this.codeLink);
             this.Controls.Add(this.button2);
-            this.Controls.Add(this.heliCount);
-            this.Controls.Add(this.MWCount);
-            this.Controls.Add(this.bombCount);
-            this.Controls.Add(this.sniperCount);
-            this.Controls.Add(this.chainsawCount);
-            this.Controls.Add(this.infoHeli);
-            this.Controls.Add(this.infoMWDrags);
-            this.Controls.Add(this.infoBomb);
-            this.Controls.Add(this.infoSniper);
-            this.Controls.Add(this.infoChainsaw);
-            this.Controls.Add(this.label4);
             this.Controls.Add(this.button1);
             this.Controls.Add(this.suspectsNames);
             this.Controls.Add(this.label3);
@@ -291,6 +303,8 @@
             this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
+            this.achievementsPanel.ResumeLayout(false);
+            this.achievementsPanel.PerformLayout();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -305,6 +319,9 @@
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.RichTextBox suspectsNames;
         private System.Windows.Forms.Button button1;
+        private System.Windows.Forms.LinkLabel codeLink;
+        private System.Windows.Forms.LinkLabel profileLink;
+        private System.Windows.Forms.ToolTip toolTip1;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label infoChainsaw;
         private System.Windows.Forms.Label infoSniper;
@@ -317,8 +334,7 @@
         private System.Windows.Forms.Label MWCount;
         private System.Windows.Forms.Label heliCount;
         private System.Windows.Forms.Button button2;
-        private System.Windows.Forms.LinkLabel codeLink;
-        private System.Windows.Forms.LinkLabel linkLabel1;
+        private System.Windows.Forms.Panel achievementsPanel;
     }
 }
 

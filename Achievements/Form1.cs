@@ -31,7 +31,35 @@ namespace Achievements
         public Form1()
         {
             InitializeComponent();
+
             this.Text = "SWAT Achievements Manager v1.0";
+
+            // Set up the delays for the ToolTip.
+            toolTip1.AutoPopDelay = 5000;
+            toolTip1.InitialDelay = 1000;
+            toolTip1.ReshowDelay = 500;
+            // Force the ToolTip text to be displayed whether or not the form is active.
+            toolTip1.ShowAlways = true;
+
+            toolTip1.SetToolTip(membersName, "Enter the name of SWAT member here if you want to add his achievements" +
+                " or check his achievements");
+
+            toolTip1.SetToolTip(achievementType, "Please select the achievement you want to add for the member."
+                + " You can only select 1 achievement type at a time");
+
+            toolTip1.SetToolTip(suspectsNames, "Enter the name(s) of the suspects as provided by the member in the screenshot(s)."
+                + " One name per line ");
+
+            toolTip1.SetToolTip(button1, "Click here to add and validate the achievements of the member. "
+                + "Only correct names will be added to the file, and repeated names will be discarded");
+
+            toolTip1.SetToolTip(codeLink, "Click here to view the source code of this application on GitHub");
+
+            toolTip1.SetToolTip(profileLink, "Click here to view the developers profile (Lsrcr Forums)");
+
+            toolTip1.SetToolTip(achievementsPanel, "Shows the achievements of the member");
+
+            toolTip1.SetToolTip(button2, "Click to display / update the achievements of the member");
         }
 
         private void button1_Click(object sender, EventArgs e)

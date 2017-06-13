@@ -13,6 +13,21 @@ namespace Achievements
 {
     public partial class Form1 : Form
     {
+        public int numberOfLinesInFile(string fileName)
+        {
+            var lineCount = 0;
+            using (var reader = File.OpenText(fileName))
+            {
+                string line;
+                while ((line=reader.ReadLine()) != null)
+                {
+                    if (line.Length != 0)
+                        lineCount++;
+                }
+            }
+            return lineCount;
+        }
+
         public Form1()
         {
             InitializeComponent();
@@ -108,16 +123,30 @@ namespace Achievements
                                     {
                                         // they will be discarded
                                         repeated += suspectsNames.Lines[i];
-                                        repeated += Environment.NewLine;
+                                        if (i+1 != numOfSuspects)
+                                            repeated += Environment.NewLine;
                                     }
 
                                     found = false;          // Reset found
                                 }
 
                                 File.AppendAllText(fileName, toAppend);
+
+                                string message = "";
+
+                                if (toAppend.Length != 0)
+                                    message = "Following names are added to the file succesfully : " +
+                                        Environment.NewLine + toAppend + Environment.NewLine;
+
                                 if (repeated.Length != 0)
-                                    MessageBox.Show("Following names are repeated and are not added to the file : "
-                                        + Environment.NewLine + repeated, "File updated",
+                                {
+                                    message += "Following names are repeated and are not added to the file : ";
+                                            message = message + Environment.NewLine + repeated;
+                                }
+
+                                suspectsNames.Text = repeated;
+
+                                    MessageBox.Show(message, "File updated",
                                         MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             }
                         }
@@ -139,35 +168,35 @@ namespace Achievements
 
                 if (File.Exists(fileName + @"\Chainsaw.txt"))
                 {
-                    int lineCount = File.ReadLines(fileName + @"\Chainsaw.txt").Count();
+                    int lineCount = numberOfLinesInFile(fileName + @"\Chainsaw.txt");
                     chainsawCount.Text = lineCount.ToString();
                     info = true;
                 }
 
                 if (File.Exists(fileName + @"\Sniper.txt"))
                 {
-                    int lineCount = File.ReadLines(fileName + @"\Sniper.txt").Count();
+                    int lineCount = numberOfLinesInFile(fileName + @"\Sniper.txt");
                     sniperCount.Text = lineCount.ToString();
                     info = true;
                 }
 
                 if (File.Exists(fileName + @"\Bomb.txt"))
                 {
-                    int lineCount = File.ReadLines(fileName + @"\Bomb.txt").Count();
+                    int lineCount = numberOfLinesInFile(fileName + @"\Bomb.txt");
                     bombCount.Text = lineCount.ToString();
                     info = true;
                 }
 
                 if (File.Exists(fileName + @"\DragMW.txt"))
                 {
-                    int lineCount = File.ReadLines(fileName + @"\DragMW.txt").Count();
+                    int lineCount = numberOfLinesInFile(fileName + @"\DragMW.txt");
                     MWCount.Text = lineCount.ToString();
                     info = true;
                 }
 
                 if (File.Exists(fileName + @"\HeliDrag.txt"))
                 {
-                    int lineCount = File.ReadLines(fileName + @"\HeliDrag.txt").Count();
+                    int lineCount = numberOfLinesInFile(fileName + @"\HeliDrag.txt");
                     heliCount.Text = lineCount.ToString();
                     info = true;
                 }

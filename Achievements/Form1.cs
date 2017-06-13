@@ -95,7 +95,7 @@ namespace Achievements
                                 {
                                     for (int j = 0; j < suspectsInFile; ++j)
                                     {
-                                        if (suspectsNames.Lines[i] == newLines[j])
+                                        if (suspectsNames.Lines[i].ToLower() == newLines[j].ToLower())
                                             found = true;
                                     }
                                     if (!found)
@@ -115,8 +115,10 @@ namespace Achievements
                                 }
 
                                 File.AppendAllText(fileName, toAppend);
-                                MessageBox.Show("Following names are repeated and are discarded : " + Environment.NewLine +
-                                    repeated, "File updated");
+                                if (repeated.Length != 0)
+                                    MessageBox.Show("Following names are repeated and are not added to the file : "
+                                        + Environment.NewLine + repeated, "File updated",
+                                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
                             }
                         }
                     }
@@ -126,7 +128,58 @@ namespace Achievements
 
         private void button2_Click(object sender, EventArgs e)
         {
+            bool info = false;
 
+            if (membersName.TextLength == 0)
+                MessageBox.Show("Please enter the name of the SWAT Member if you want to check his achievements", "ERROR!!",
+                 MessageBoxButtons.OK, MessageBoxIcon.Error);
+            else
+            {
+                string fileName = membersName.Text;
+
+                if (File.Exists(fileName + @"\Chainsaw.txt"))
+                {
+                    int lineCount = File.ReadLines(fileName + @"\Chainsaw.txt").Count();
+                    chainsawCount.Text = lineCount.ToString();
+                    info = true;
+                }
+
+                if (File.Exists(fileName + @"\Sniper.txt"))
+                {
+                    int lineCount = File.ReadLines(fileName + @"\Sniper.txt").Count();
+                    sniperCount.Text = lineCount.ToString();
+                    info = true;
+                }
+
+                if (File.Exists(fileName + @"\Bomb.txt"))
+                {
+                    int lineCount = File.ReadLines(fileName + @"\Bomb.txt").Count();
+                    bombCount.Text = lineCount.ToString();
+                    info = true;
+                }
+
+                if (File.Exists(fileName + @"\DragMW.txt"))
+                {
+                    int lineCount = File.ReadLines(fileName + @"\DragMW.txt").Count();
+                    MWCount.Text = lineCount.ToString();
+                    info = true;
+                }
+
+                if (File.Exists(fileName + @"\HeliDrag.txt"))
+                {
+                    int lineCount = File.ReadLines(fileName + @"\HeliDrag.txt").Count();
+                    heliCount.Text = lineCount.ToString();
+                    info = true;
+                }
+
+                if (info)
+                    MessageBox.Show("All the information has been updated", "UPDATED SUCCESSFULLY");
+                else
+                    MessageBox.Show("No information found for user : '" + fileName + "'. Please provide valid files for this user"
+                        + " OR ask the developer if you are unaware of the usage of this software", "Something's not right",
+                        MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+            }
         }
     }
 }

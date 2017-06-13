@@ -28,6 +28,7 @@
         /// </summary>
         private void InitializeComponent()
         {
+            System.ComponentModel.ComponentResourceManager resources = new System.ComponentModel.ComponentResourceManager(typeof(Form1));
             this.label1 = new System.Windows.Forms.Label();
             this.label2 = new System.Windows.Forms.Label();
             this.achievementType = new System.Windows.Forms.CheckedListBox();
@@ -110,9 +111,9 @@
             // 
             this.button1.Location = new System.Drawing.Point(173, 451);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(99, 50);
+            this.button1.Size = new System.Drawing.Size(122, 67);
             this.button1.TabIndex = 6;
-            this.button1.Text = "Check and Update";
+            this.button1.Text = "Add and Validate achievements";
             this.button1.UseVisualStyleBackColor = true;
             this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
@@ -179,50 +180,50 @@
             // chainsawCount
             // 
             this.chainsawCount.AutoSize = true;
-            this.chainsawCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.chainsawCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.chainsawCount.Location = new System.Drawing.Point(591, 86);
             this.chainsawCount.Name = "chainsawCount";
-            this.chainsawCount.Size = new System.Drawing.Size(15, 16);
+            this.chainsawCount.Size = new System.Drawing.Size(16, 16);
             this.chainsawCount.TabIndex = 13;
             this.chainsawCount.Text = "0";
             // 
             // sniperCount
             // 
             this.sniperCount.AutoSize = true;
-            this.sniperCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.sniperCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.sniperCount.Location = new System.Drawing.Point(572, 119);
             this.sniperCount.Name = "sniperCount";
-            this.sniperCount.Size = new System.Drawing.Size(15, 16);
+            this.sniperCount.Size = new System.Drawing.Size(16, 16);
             this.sniperCount.TabIndex = 14;
             this.sniperCount.Text = "0";
             // 
             // bombCount
             // 
             this.bombCount.AutoSize = true;
-            this.bombCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.bombCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.bombCount.Location = new System.Drawing.Point(568, 151);
             this.bombCount.Name = "bombCount";
-            this.bombCount.Size = new System.Drawing.Size(15, 16);
+            this.bombCount.Size = new System.Drawing.Size(16, 16);
             this.bombCount.TabIndex = 15;
             this.bombCount.Text = "0";
             // 
             // MWCount
             // 
             this.MWCount.AutoSize = true;
-            this.MWCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.MWCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.MWCount.Location = new System.Drawing.Point(626, 182);
             this.MWCount.Name = "MWCount";
-            this.MWCount.Size = new System.Drawing.Size(15, 16);
+            this.MWCount.Size = new System.Drawing.Size(16, 16);
             this.MWCount.TabIndex = 16;
             this.MWCount.Text = "0";
             // 
             // heliCount
             // 
             this.heliCount.AutoSize = true;
-            this.heliCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.heliCount.Font = new System.Drawing.Font("Microsoft Sans Serif", 9.75F, System.Drawing.FontStyle.Bold, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
             this.heliCount.Location = new System.Drawing.Point(571, 212);
             this.heliCount.Name = "heliCount";
-            this.heliCount.Size = new System.Drawing.Size(15, 16);
+            this.heliCount.Size = new System.Drawing.Size(16, 16);
             this.heliCount.TabIndex = 17;
             this.heliCount.Text = "0";
             // 
@@ -230,9 +231,9 @@
             // 
             this.button2.Location = new System.Drawing.Point(511, 257);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(75, 43);
+            this.button2.Size = new System.Drawing.Size(82, 62);
             this.button2.TabIndex = 18;
-            this.button2.Text = "Update Info";
+            this.button2.Text = "Display Achievements";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
@@ -260,6 +261,7 @@
             this.Controls.Add(this.achievementType);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label1);
+            this.Icon = ((System.Drawing.Icon)(resources.GetObject("$this.Icon")));
             this.Name = "Form1";
             this.Text = "Form1";
             this.ResumeLayout(false);

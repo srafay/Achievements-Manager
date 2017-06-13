@@ -6,4 +6,3 @@ rafay
 dummy
 naruto
 baka
-.

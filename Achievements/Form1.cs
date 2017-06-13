@@ -60,10 +60,13 @@ namespace Achievements
             toolTip1.SetToolTip(achievementsPanel, "Shows the achievements of the member");
 
             toolTip1.SetToolTip(button2, "Click to display / update the achievements of the member");
+
+
         }
 
         private void button1_Click(object sender, EventArgs e)
         {
+
             string fileName = "";
 
             if (membersName.TextLength == 0)
@@ -113,6 +116,12 @@ namespace Achievements
                                 File.WriteAllText(fileName, buffer);
                                 MessageBox.Show("Created a new file '" + fileName + "' and added the following names to it : " +
                                     Environment.NewLine + buffer, "Succesfully created a new file!");
+
+                                notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+                                notifyIcon1.BalloonTipText = "A new file '" + fileName + "' has been created by SWAT Achievements Manager";
+                                notifyIcon1.BalloonTipTitle = "Success";
+
+                                notifyIcon1.ShowBalloonTip(5000);
                             }
                             else
                             {
@@ -176,6 +185,15 @@ namespace Achievements
 
                                     MessageBox.Show(message, "File updated",
                                         MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
+
+                                    if (toAppend.Length != 0)
+                                    {
+                                        notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+                                        notifyIcon1.BalloonTipText = "New achivements of the member have been added!";
+                                        notifyIcon1.BalloonTipTitle = fileName + " modified";
+
+                                        notifyIcon1.ShowBalloonTip(5000);
+                                    }
                             }
                         }
                     }
@@ -230,9 +248,17 @@ namespace Achievements
                 }
 
                 if (info)
+                {
                     MessageBox.Show("All the information has been updated", "UPDATED SUCCESSFULLY");
+
+                    notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+                    notifyIcon1.BalloonTipText = "Achievements information has been updated for user '" + membersName.Text + "'";
+                    notifyIcon1.BalloonTipTitle = "Update successful";
+
+                    notifyIcon1.ShowBalloonTip(2000);
+                }
                 else
-                    MessageBox.Show("No information found for user : '" + fileName + "'. Please provide valid files for this user"
+                    MessageBox.Show("No information found for user : '" + fileName + "'\nPlease provide valid files for this user"
                         + " OR ask the developer if you are unaware of the usage of this software", "Something's not right",
                         MessageBoxButtons.OK, MessageBoxIcon.Exclamation);
 

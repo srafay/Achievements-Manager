@@ -53,6 +53,7 @@
             this.heliCount = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
             this.achievementsPanel = new System.Windows.Forms.Panel();
+            this.notifyIcon1 = new System.Windows.Forms.NotifyIcon(this.components);
             this.achievementsPanel.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -145,6 +146,13 @@
             this.profileLink.TabStop = true;
             this.profileLink.Text = "Developed By: [Lsrcr]Wajeeh";
             this.profileLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
+            // toolTip1
+            // 
+            this.toolTip1.AutoPopDelay = 7000;
+            this.toolTip1.InitialDelay = 400;
+            this.toolTip1.ReshowDelay = 100;
+            this.toolTip1.ToolTipIcon = System.Windows.Forms.ToolTipIcon.Info;
             // 
             // label4
             // 
@@ -284,6 +292,12 @@
             this.achievementsPanel.Size = new System.Drawing.Size(225, 196);
             this.achievementsPanel.TabIndex = 22;
             // 
+            // notifyIcon1
+            // 
+            this.notifyIcon1.Icon = ((System.Drawing.Icon)(resources.GetObject("notifyIcon1.Icon")));
+            this.notifyIcon1.Text = "notifyIcon1";
+            this.notifyIcon1.Visible = true;
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
@@ -335,6 +349,7 @@
         private System.Windows.Forms.Label heliCount;
         private System.Windows.Forms.Button button2;
         private System.Windows.Forms.Panel achievementsPanel;
+        private System.Windows.Forms.NotifyIcon notifyIcon1;
     }
 }
 

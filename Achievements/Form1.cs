@@ -210,5 +210,16 @@ namespace Achievements
 
             }
         }
+
+        private void codeLink_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://github.com/srafay/Achievements-Manager");
+        }
+
+        private void linkLabel1_LinkClicked(object sender, LinkLabelLinkClickedEventArgs e)
+        {
+            System.Diagnostics.Process.Start("https://ls-rcr.com/forum/memberlist.php?mode=viewprofile&u=18265");
+        }
+
     }
 }

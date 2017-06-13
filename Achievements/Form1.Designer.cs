@@ -48,12 +48,14 @@
             this.MWCount = new System.Windows.Forms.Label();
             this.heliCount = new System.Windows.Forms.Label();
             this.button2 = new System.Windows.Forms.Button();
+            this.codeLink = new System.Windows.Forms.LinkLabel();
+            this.linkLabel1 = new System.Windows.Forms.LinkLabel();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(24, 14);
+            this.label1.Location = new System.Drawing.Point(25, 15);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(87, 13);
             this.label1.TabIndex = 0;
@@ -85,7 +87,7 @@
             // 
             // membersName
             // 
-            this.membersName.Location = new System.Drawing.Point(138, 10);
+            this.membersName.Location = new System.Drawing.Point(138, 12);
             this.membersName.Name = "membersName";
             this.membersName.Size = new System.Drawing.Size(195, 20);
             this.membersName.TabIndex = 3;
@@ -237,11 +239,36 @@
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
+            // codeLink
+            // 
+            this.codeLink.AutoSize = true;
+            this.codeLink.Location = new System.Drawing.Point(578, 514);
+            this.codeLink.Name = "codeLink";
+            this.codeLink.Size = new System.Drawing.Size(132, 13);
+            this.codeLink.TabIndex = 20;
+            this.codeLink.TabStop = true;
+            this.codeLink.Text = "Click to view Source Code";
+            this.codeLink.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.codeLink_LinkClicked);
+            // 
+            // linkLabel1
+            // 
+            this.linkLabel1.AutoSize = true;
+            this.linkLabel1.LinkColor = System.Drawing.Color.Black;
+            this.linkLabel1.Location = new System.Drawing.Point(572, 537);
+            this.linkLabel1.Name = "linkLabel1";
+            this.linkLabel1.Size = new System.Drawing.Size(146, 13);
+            this.linkLabel1.TabIndex = 21;
+            this.linkLabel1.TabStop = true;
+            this.linkLabel1.Text = "Developed By: [Lsrcr]Wajeeh";
+            this.linkLabel1.LinkClicked += new System.Windows.Forms.LinkLabelLinkClickedEventHandler(this.linkLabel1_LinkClicked);
+            // 
             // Form1
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(96F, 96F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Dpi;
             this.ClientSize = new System.Drawing.Size(730, 559);
+            this.Controls.Add(this.linkLabel1);
+            this.Controls.Add(this.codeLink);
             this.Controls.Add(this.button2);
             this.Controls.Add(this.heliCount);
             this.Controls.Add(this.MWCount);
@@ -290,6 +317,8 @@
         private System.Windows.Forms.Label MWCount;
         private System.Windows.Forms.Label heliCount;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.LinkLabel codeLink;
+        private System.Windows.Forms.LinkLabel linkLabel1;
     }
 }
 

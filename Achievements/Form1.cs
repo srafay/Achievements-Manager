@@ -60,14 +60,56 @@ namespace Achievements
                             for (int i = 0; i < numOfLines; ++i)
                             {
                                 buffer += suspectsNames.Lines[i];
-                                if (i + 1 != numOfLines)
-                                    buffer += Environment.NewLine;
+                                buffer += Environment.NewLine;
                             }
                             File.WriteAllText(fileName, buffer);
                         }
                         else
                         {
+                            string lines = "", toAppend = "", repeated = "";
+                            int suspectsInFile = 0;
+                            using (StreamReader sr = new StreamReader(fileName))
+                            {
+                                string temp;
+                                // Read and display lines from the file until 
+                                // the end of the file is reached. 
+                                while ((temp=sr.ReadLine()) != null)
+                                {
+                                    lines += temp;
+                                    lines += Environment.NewLine;
+                                    ++suspectsInFile;
+                                }
+                            }
+                            string[] newLines = lines.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
+                            int numOfSuspects = suspectsNames.Lines.Count();
+                            bool found=false;
 
+                            for (int i = 0; i < numOfSuspects; ++i)
+                            {
+                                for (int j = 0; j < suspectsInFile; ++j)
+                                {
+                                    if (suspectsNames.Lines[i] == newLines[j])
+                                        found = true;
+                                }
+                                if (!found)
+                                {
+                                    // will be added to the file
+                                    toAppend += suspectsNames.Lines[i];
+                                    toAppend += Environment.NewLine;
+                                }
+                                else
+                                {
+                                    // they will be discarded
+                                    repeated += suspectsNames.Lines[i];
+                                    repeated += Environment.NewLine;
+                                }
+
+                                found = false;          // Reset found
+                            }
+
+                            File.AppendAllText(fileName, toAppend);
+                            MessageBox.Show("Following names are repeated and are discareded : " + Environment.NewLine +
+                                repeated, "File updated");
                         }
                     }
                 }

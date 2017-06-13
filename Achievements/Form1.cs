@@ -211,6 +211,7 @@ namespace Achievements
             else
             {
                 string fileName = membersName.Text;
+                chainsawCount.Text = sniperCount.Text = bombCount.Text = MWCount.Text = heliCount.Text = "0";
 
                 if (File.Exists(fileName + @"\Chainsaw.txt"))
                 {

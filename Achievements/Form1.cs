@@ -231,30 +231,6 @@ namespace Achievements
                                 /* NEW CODE *////////////////////////////////////////////
 
 
-                                for (int i = 0; i < numOfSuspects; ++i)
-                                {
-                                    for (int j = 0; j < suspectsInFile; ++j)
-                                    {
-                                        if (suspectsNames.Lines[i].ToLower() == newLines[j].ToLower())
-                                            found = true;
-                                    }
-                                    if (!found)
-                                    {
-                                        // will be added to the file
-                                        toAppend += suspectsNames.Lines[i];
-                                        toAppend += Environment.NewLine;
-                                    }
-                                    else
-                                    {
-                                        // they will be discarded
-                                        repeated += suspectsNames.Lines[i];
-                                        if (i+1 != numOfSuspects)
-                                            repeated += Environment.NewLine;
-                                    }
-
-                                    found = false;          // Reset found
-                                }
-
                                 File.AppendAllText(fileName, toAppend);
 
                                 string message = "";

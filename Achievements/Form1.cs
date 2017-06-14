@@ -104,24 +104,53 @@ namespace Achievements
 
                             if (!File.Exists(fileName))
                             {
-                                string buffer = "";
+                                string buffer = "", repeated = "";
+                                bool repeatition;
                                 int numOfLines = suspectsNames.Lines.Length;
                                 FileInfo file = new FileInfo(fileName);
                                 file.Directory.Create(); // If the directory already exists, this method does nothing.
                                 for (int i = 0; i < numOfLines; ++i)
                                 {
-                                    buffer += suspectsNames.Lines[i];
-                                    buffer += Environment.NewLine;
+                                    repeatition = false;
+
+                                    for (int j = i + 1; j < numOfLines; ++j)
+                                        if (suspectsNames.Lines[i].ToLower() == suspectsNames.Lines[j].ToLower())
+                                        {
+                                            repeatition = true;
+                                            break;
+                                        }
+
+                                    if (!repeatition)
+                                    {
+                                        buffer += suspectsNames.Lines[i];
+                                        buffer += Environment.NewLine;
+                                    }
+                                    else
+                                    {
+                                        repeated += suspectsNames.Lines[i];
+                                        repeated += Environment.NewLine;
+                                    }
                                 }
-                                File.WriteAllText(fileName, buffer);
-                                MessageBox.Show("Created a new file '" + fileName + "' and added the following names to it : " +
-                                    Environment.NewLine + buffer, "Succesfully created a new file!");
 
-                                notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
-                                notifyIcon1.BalloonTipText = "A new file '" + fileName + "' has been created by SWAT Achievements Manager";
-                                notifyIcon1.BalloonTipTitle = "Success";
+                                if (buffer.Length != 0)
+                                {
+                                    File.WriteAllText(fileName, buffer);
+                                    string message = "Created a new file '" + fileName + "' and added the following names to it : " +
+                                        Environment.NewLine + buffer;
+                                    if (repeated.Length != 0)
+                                    {
+                                        message += "\nFollowing names are repeated and are discarded:\n";
+                                        message += repeated;
+                                    }
+                                    MessageBox.Show(message, "Succesfully created a new file!");
 
-                                notifyIcon1.ShowBalloonTip(5000);
+                                    notifyIcon1.BalloonTipIcon = ToolTipIcon.Info;
+                                    notifyIcon1.BalloonTipText = "A new file '" + fileName + "' has been created by SWAT Achievements Manager";
+                                    notifyIcon1.BalloonTipTitle = "Success";
+
+                                    notifyIcon1.ShowBalloonTip(5000);
+                                }
+                                suspectsNames.Text = "";
                             }
                             else
                             {
@@ -140,8 +169,67 @@ namespace Achievements
                                     }
                                 }
                                 string[] newLines = lines.Split(new string[] { Environment.NewLine }, StringSplitOptions.None);
-                                int numOfSuspects = suspectsNames.Lines.Count();
                                 bool found = false;
+
+                                /* NEW CODE *///////////////////////////////////////////
+
+                                string buffer = "";
+                                bool repeatition;
+                                int numOfLines = suspectsNames.Lines.Length;
+
+                                for (int i = 0; i < numOfLines; ++i)
+                                {
+                                    repeatition = false;
+
+                                    for (int j = i + 1; j < numOfLines; ++j)
+                                        if (suspectsNames.Lines[i].ToLower() == suspectsNames.Lines[j].ToLower())
+                                        {
+                                            repeatition = true;
+                                            break;
+                                        }
+
+                                    if (!repeatition)
+                                    {
+                                        buffer += suspectsNames.Lines[i];
+                                        buffer += Environment.NewLine;
+                                    }
+                                    else
+                                    {
+                                        repeated += suspectsNames.Lines[i];
+                                        repeated += Environment.NewLine;
+                                    }
+                                }
+
+                                suspectsNames.Text = buffer;
+
+                                int numOfSuspects = suspectsNames.Lines.Count() - 1;
+
+                                for (int i = 0; i < numOfSuspects; ++i)
+                                {
+                                    for (int j = 0; j < suspectsInFile; ++j)
+                                    {
+                                        if (suspectsNames.Lines[i].ToLower() == newLines[j].ToLower())
+                                            found = true;
+                                    }
+                                    if (!found)
+                                    {
+                                        // will be added to the file
+                                        toAppend += suspectsNames.Lines[i];
+                                        toAppend += Environment.NewLine;
+                                    }
+                                    else
+                                    {
+                                        // they will be discarded
+                                        repeated += suspectsNames.Lines[i];
+                                        if (i + 1 != numOfSuspects)
+                                            repeated += Environment.NewLine;
+                                    }
+
+                                    found = false;          // Reset found
+                                }
+
+                                /* NEW CODE *////////////////////////////////////////////
+
 
                                 for (int i = 0; i < numOfSuspects; ++i)
                                 {
